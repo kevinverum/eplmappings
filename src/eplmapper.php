@@ -57,6 +57,31 @@ class EPLMapper implements IEPLMapper
 
     private function _getArrField(array $json_decoded, array $json_key)
     {
+
+//        var_dump($json_key);
+        /*
+         array(1) {
+  ["price"]=>
+  array(1) {
+    ["value"]=>
+    string(0) ""
+  }
+}
+
+         */
+
+        /*
+            "price" => [
+            "display" => true,
+            "value"=>685000
+        ]
+
+                        "property_price"=> [
+                    "price" => [
+                        "value"=>""
+                    ]
+                ],
+         */
         $k = key($json_key);
         $v = $json_key[$k];
         // We shouldn't need to go deeper than this
@@ -193,7 +218,7 @@ class EPLMapper implements IEPLMapper
                 ],
                 "property_price"=> [
                     "price" => [
-                        "value"
+                        "value"=>""
                     ]
                 ],
                 "property_price_view"=> "priceView",
