@@ -1,0 +1,12 @@
+{
+    "name": "kevinverum/eplmappings",
+    "description": "Map fields from xml / json files to Easy Property Listings wp plugin meta fields",
+    "authors": [
+        {
+            "name": "Kevin Davies",
+            "email": "kevin@verum.nz"
+        }
+    ],
+    "require": {
+    }
+}
