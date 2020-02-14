@@ -17,6 +17,25 @@ $json = json_encode(
                 "tag" => "LISTING_TYPE",
                 "value" => "Residential"
             ]
+        ],
+        "agentID" => "TMANA001",
+        "uniqueID" => "M5828",
+        "authority" => "exclusive",
+        "underOffer" => false,
+        "listingAgent" => [
+            [
+                "id"=>1,
+                "name" => "Murray Woodley"
+            ],
+            [
+                "id"=>2,
+                "name" => "Susan Woodley"
+            ]
+        ],
+        "priceView" => "Buyer Enquiry From $685,000",
+        "price" => [
+            "display" => true,
+            "value"=>685000
         ]
     ]
 );

@@ -10,23 +10,28 @@ class EPLMapper implements IEPLMapper
     {
         $json_decoded = json_decode($json, true);
 
-        $wp_post_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_posts']));
-        $wp_post_meta_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_postmeta']));
+        $wp_post_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_posts']), $this->epl_fields_map['wp_posts']);
+        $wp_post_meta_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_postmeta']), $this->epl_fields_map['wp_postmeta']);
 
         return [
             "wp_posts"=>$wp_post_fields_mapped,
-            "wp_postmeta"=>$wp_post_meta_fields_mapped
+            "wp_postmeta"=>array_filter(
+                $wp_post_meta_fields_mapped,
+                function($v) {
+                    return !is_null($v);
+                }
+            )
         ];
 
     }
 
-    private function _mapJSON(array $json_decoded, array $fields):array
+    private function _mapJSON(array $json_decoded, array $fields, array $haystack):array
     {
         return array_reduce(
             $fields,
-            function(array $carry, string $epl_key) use ($json_decoded) {
+            function(array $carry, string $epl_key) use ($json_decoded, $haystack) {
 
-                $json_key = $this->epl_fields_map['wp_posts'][$epl_key];
+                $json_key = $haystack[$epl_key];
 
                 if (is_string($json_key) && isset($json_decoded[$json_key])) {
 
@@ -36,6 +41,10 @@ class EPLMapper implements IEPLMapper
 
                     if (isset($json_key['extraFields'])) {
                         $carry[$epl_key] = $this->_getExtraField($json_decoded, $json_key);
+                    } else {
+
+                        $carry[$epl_key] = $this->_getArrField($json_decoded, $json_key);
+
                     }
                 }
 
@@ -46,12 +55,27 @@ class EPLMapper implements IEPLMapper
 
     }
 
-
-    private function _getExtraField(array $json_decoded, array $json_key):string
+    private function _getArrField(array $json_decoded, array $json_key)
     {
-        return $json_decoded['extraFields'][
-        array_search($json_key['extraFields']['tag'], array_column($json_decoded["extraFields"], "tag"))
-        ]["value"];
+        $k = key($json_key);
+        $v = $json_key[$k];
+        // We shouldn't need to go deeper than this
+        if (is_array($v)) {
+            $arr_k = key($v);
+            $arr_v = $v[$arr_k];
+            return $json_decoded[$k][$arr_k][$arr_v];
+        }
+
+        return null;
+    }
+
+    private function _getExtraField(array $json_decoded, array $json_key)
+    {
+        $i = array_search($json_key['extraFields']['tag'], array_column($json_decoded["extraFields"], "tag"));
+        if ($i === false) {
+            return null;
+        }
+        return $json_decoded['extraFields'][$i]["value"];
     }
 
     /**
@@ -85,10 +109,14 @@ class EPLMapper implements IEPLMapper
                 "property_heading" => "headline",
                 "property_office_id" => "",
                 "property_agent" => [
-                    "listingAgent" => 1
+                    "listingAgent" => [
+                        0 => "name"
+                    ]
                 ],
                 "property_second_agent" => [
-                    "listingAgent" => 2
+                    "listingAgent" => [
+                        1 => "name"
+                    ]
                 ],
                 "property_status" => "status",
                 "property_list_date" => "",
