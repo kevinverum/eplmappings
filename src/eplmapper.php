@@ -61,34 +61,31 @@ class EPLMapper implements IEPLMapper
 //        var_dump($json_key);
         /*
          array(1) {
-  ["price"]=>
+  [0]=>
   array(1) {
-    ["value"]=>
-    string(0) ""
+    ["listingAgent"]=>
+    array(1) {
+      ["name"]=>
+      string(0) ""
+    }
   }
 }
 
          */
-
-        /*
-            "price" => [
-            "display" => true,
-            "value"=>685000
-        ]
-
-                        "property_price"=> [
-                    "price" => [
-                        "value"=>""
-                    ]
-                ],
-         */
-        $k = key($json_key);
-        $v = $json_key[$k];
-        // We shouldn't need to go deeper than this
+        $k = key($json_key); // 0
+        $v = $json_key[$k]; // ["listingAgent"=>[name"=>""]]
         if (is_array($v)) {
-            $arr_k = key($v);
-            $arr_v = $v[$arr_k];
-            return $json_decoded[$k][$arr_k][$arr_v];
+            $arr_k = key($v); // "listingAgent"
+            $arr_v = $v[$arr_k]; // ["name"=>""]
+            if (is_array($arr_v)) {
+                $sub_arr_k = key($arr_v); // "name"
+                $sub_arr_v = $arr_v[$sub_arr_k]; // ""
+                //var_dump($k . " " . $arr_k . " " . $sub_arr_k);
+                // var_dump($json_decoded[$k][$arr_k][$sub_arr_k]);
+                // die();
+                return $json_decoded[$k][$arr_k][$sub_arr_k];
+            }
+            return $json_decoded[$k][$arr_k];
         }
 
         return null;
@@ -134,13 +131,17 @@ class EPLMapper implements IEPLMapper
                 "property_heading" => "headline",
                 "property_office_id" => "",
                 "property_agent" => [
-                    "listingAgent" => [
-                        0 => "name"
+                    "listingAgent"=>[
+                        0 => [
+                           "name" => ""
+                        ]
                     ]
                 ],
                 "property_second_agent" => [
-                    "listingAgent" => [
-                        1 => "name"
+                    "listingAgent"=>[
+                        1 => [
+                            "name" => ""
+                        ]
                     ]
                 ],
                 "property_status" => "status",
@@ -157,51 +158,51 @@ class EPLMapper implements IEPLMapper
                 "property_commercial_category"=>"",
                 "property_building_area_unit"=>[
                     "buildingDetails" => [
-                        "unit"
+                        "unit" => ""
                     ]
                 ],
                 "property_address_display"=> [
                     "address" => [
-                        "display"
+                        "display"=>""
                     ]
                 ],
                 "property_address_street_number"=>  [
                     "address" => [
-                        "streetNumber"
+                        "streetNumber"=>""
                     ]
                 ],
                 "property_address_street"=>  [
                     "address" => [
-                        "street"
+                        "street"=>""
                     ]
                 ],
                 "property_address_suburb"=>  [
                     "address" => [
                         "suburb" => [
-                            "value"
+                            "value"=>""
                         ]
                     ]
                 ],
                 "property_com_display_suburb"=> [
                     "address" => [
                         "suburb" => [
-                            "display"
+                            "display"=>""
                         ]
                     ]
                 ],
                 "property_address_city"=> [
                     "address" => [
-                        "city"
+                        "city"=>""
                     ]
                 ],
                 "property_address_state"=> [
                     "address" => [
-                        "state"
+                        "state"=>""
                     ]
                 ],
                 "property_address_country"=> [
                     "address" => [
-                        "country"
+                        "country"=>""
                     ]
                 ],
                 "property_address_coordinates"=> [
@@ -247,7 +248,7 @@ class EPLMapper implements IEPLMapper
                 "property_unique_id" => "uniqueID",
                 "property_building_area" => [
                     "buildingDetails" => [
-                        "area"
+                        "area" => ""
                     ]
                 ],
                 "property_bedrooms"=>"",
@@ -321,7 +322,7 @@ class EPLMapper implements IEPLMapper
                 "property_pet_friendly"=>"",
                 "property_land_area_unit"=>[
                     "landDetails" => [
-                        "unit"
+                        "unit" => ""
                     ]
                 ],
                 "property_rent"=>"",
@@ -371,7 +372,7 @@ class EPLMapper implements IEPLMapper
                 "property_rates" => "councilRates",
                 "property_land_area" => [
                     "landDetails" => [
-                        "area"
+                        "area" => ""
                     ]
                 ],
 

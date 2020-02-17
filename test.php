@@ -36,6 +36,19 @@ $json = json_encode(
         "price" => [
             "display" => true,
             "value"=>685000
+        ],
+        "address" => [
+            "display" => true,
+            "streetNumber"=>13,
+            "street" =>"Colonial Grove",
+            "suburb" => [
+                "display"=>true,
+                "value"=>"Tawa"
+            ],
+            "city"=>"Wellington",
+            "state"=>"Wellington",
+            "postcode"=>5028,
+            "country"=>"NZ"
         ]
     ]
 );
