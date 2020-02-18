@@ -13,6 +13,13 @@ class EPLMapper implements IEPLMapper
         $wp_post_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_posts']), $this->epl_fields_map['wp_posts']);
         $wp_post_meta_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_postmeta']), $this->epl_fields_map['wp_postmeta']);
 
+        if (isset($wp_post_meta_fields_mapped['property_features'])) {
+            array_walk($wp_post_meta_fields_mapped['property_features'], function ($val, $key) use (&$result) {
+                $result .=  "$val $key\n";
+            });
+            $wp_post_meta_fields_mapped['property_features'] = trim($result);
+        }
+
         return [
             "wp_posts"=>$wp_post_fields_mapped,
             "wp_postmeta"=>array_filter(
@@ -20,7 +27,14 @@ class EPLMapper implements IEPLMapper
                 function($v) {
                     return !is_null($v);
                 }
-            )
+            ),
+            "feature_image" => isset($json_decoded["featureImage"])?$json_decoded["featureImage"]["url"]:"",
+            "images" => isset($json_decoded["images"])?array_map(
+                function($item) {
+                    return $item["url"];
+                },
+                $json_decoded["images"]):[]
+
         ];
 
     }
@@ -158,7 +172,9 @@ class EPLMapper implements IEPLMapper
                 "property_commercial_category"=>"",
                 "property_building_area_unit"=>[
                     "buildingDetails" => [
-                        "unit" => ""
+                        "area" => [
+                            "unit" => ""
+                        ]
                     ]
                 ],
                 "property_address_display"=> [
@@ -248,7 +264,9 @@ class EPLMapper implements IEPLMapper
                 "property_unique_id" => "uniqueID",
                 "property_building_area" => [
                     "buildingDetails" => [
-                        "area" => ""
+                        "area" => [
+                            "value" => ""
+                        ]
                     ]
                 ],
                 "property_bedrooms"=>"",
@@ -322,7 +340,9 @@ class EPLMapper implements IEPLMapper
                 "property_pet_friendly"=>"",
                 "property_land_area_unit"=>[
                     "landDetails" => [
-                        "unit" => ""
+                        "area" => [
+                            "unit" => ""
+                        ]
                     ]
                 ],
                 "property_rent"=>"",
@@ -372,7 +392,9 @@ class EPLMapper implements IEPLMapper
                 "property_rates" => "councilRates",
                 "property_land_area" => [
                     "landDetails" => [
-                        "area" => ""
+                        "area" => [
+                            "value"=>""
+                        ]
                     ]
                 ],
 
