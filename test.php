@@ -29,7 +29,7 @@ $json = json_encode(
             ],
             [
                 "id"=>2,
-                "name" => "S W"
+                "name" => "A W"
             ]
         ],
         "priceView" => "Buyer Enquiry From $444,000",
@@ -39,7 +39,7 @@ $json = json_encode(
         ],
         "address" => [
             "display" => true,
-            "streetNumber"=>13,
+            "streetNumber"=>99,
             "street" =>"C9",
             "suburb" => [
                 "display"=>true,
