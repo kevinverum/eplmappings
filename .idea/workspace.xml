@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3b6677-feb2-4076-88a1-7b0a4302345d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/JSONMappings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JSONV2Mappings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/XMLMappings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/eplmapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/eplmapper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +27,44 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="383">
+              <caret line="354" column="25" lean-forward="true" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JSONMappings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="39" column="37" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -31,17 +73,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ama</find>
-      <find>agent</find>
-      <find>unique</find>
-      <find>property_agent</find>
-      <find>listingAgent</find>
-      <find>category</find>
-      <find>landDetails</find>
+      <find>branch</find>
+      <find>authority</find>
+      <find>commercial_rent</find>
+      <find>commercialRent</find>
+      <find>auction</find>
+      <find>commercialCat</find>
+      <find>commercialAh</find>
+      <find>branchId</find>
+      <find>dateAvail</find>
+      <find>dateAv</find>
+      <find>allownaces</find>
+      <find>*&quot;</find>
+      <find>street</find>
+      <find>agentName</find>
       <find>buildingDetails</find>
-      <find>featureIm</find>
-      <find>legal_dpo</find>
+      <find>getFeatureValue</find>
+      <find>landFullyFenced</find>
+      <find>gym</find>
+      <find>workshop</find>
+      <find>rumpus</find>
+      <find>broadband</find>
+      <find>intercom</find>
+      <find>courtyard</find>
+      <find>shed</find>
+      <find>ductedHeating</find>
+      <find>openFireplace</find>
+      <find>tennisCourt</find>
+      <find>streetName</find>
+      <find>methodOfSaleName</find>
+      <find>return</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>[</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/vendor</dir>
     </dirStrings>
@@ -57,8 +123,11 @@
         <option value="$PROJECT_DIR$/LICENSE.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/ieplmapper.php" />
-        <option value="$PROJECT_DIR$/src/eplmapper.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/JSONMappings.php" />
+        <option value="$PROJECT_DIR$/src/eplmapper.php" />
+        <option value="$PROJECT_DIR$/src/XMLMappings.php" />
+        <option value="$PROJECT_DIR$/src/JSONV2Mappings.php" />
         <option value="$PROJECT_DIR$/test.php" />
       </list>
     </option>
@@ -102,13 +171,15 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -134,24 +205,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581640285636</updated>
-      <workItem from="1581640286800" duration="21868000" />
+      <workItem from="1581640286800" duration="47265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21868000" />
+    <option name="totallyTimeSpent" value="47265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="43" width="1676" height="971" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23255815" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19339046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.5073948" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3447099" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -284,13 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7714">
-          <caret line="406" column="33" selection-start-line="406" selection-start-column="33" selection-end-line="406" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -298,10 +362,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONMappings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="383">
+          <caret line="354" column="25" lean-forward="true" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
         </state>
       </provider>
     </entry>

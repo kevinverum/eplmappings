@@ -2,6 +2,13 @@
 
 namespace kevinverum\eplmappings;
 
+require("src/JSONMappings.php");
+require("src/XMLMappings.php");
+
+/**
+ * Class EPLMapper
+ * @package kevinverum\eplmappings
+ */
 class EPLMapper implements IEPLMapper
 {
     private $epl_fields_map = [];
@@ -10,8 +17,8 @@ class EPLMapper implements IEPLMapper
     {
         $json_decoded = json_decode($json, true);
 
-        $wp_post_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_posts']), $this->epl_fields_map['wp_posts']);
         $wp_post_meta_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_postmeta']), $this->epl_fields_map['wp_postmeta']);
+        $wp_post_fields_mapped = $this->_mapJSON($json_decoded, array_keys($this->epl_fields_map['wp_posts']), $this->epl_fields_map['wp_posts']);
 
         if (isset($wp_post_meta_fields_mapped['property_features'])) {
             array_walk($wp_post_meta_fields_mapped['property_features'], function ($val, $key) use (&$result) {
@@ -41,6 +48,7 @@ class EPLMapper implements IEPLMapper
 
     private function _mapJSON(array $json_decoded, array $fields, array $haystack):array
     {
+
         return array_reduce(
             $fields,
             function(array $carry, string $epl_key) use ($json_decoded, $haystack) {
@@ -60,6 +68,10 @@ class EPLMapper implements IEPLMapper
                         $carry[$epl_key] = $this->_getArrField($json_decoded, $json_key);
 
                     }
+                } elseif (is_callable($json_key)) {
+
+                    $carry[$epl_key] = $json_key((object)$json_decoded);
+
                 }
 
                 return $carry;
@@ -71,21 +83,6 @@ class EPLMapper implements IEPLMapper
 
     private function _getArrField(array $json_decoded, array $json_key)
     {
-
-//        var_dump($json_key);
-        /*
-         array(1) {
-  [0]=>
-  array(1) {
-    ["listingAgent"]=>
-    array(1) {
-      ["name"]=>
-      string(0) ""
-    }
-  }
-}
-
-         */
         $k = key($json_key); // 0
         $v = $json_key[$k]; // ["listingAgent"=>[name"=>""]]
         if (is_array($v)) {
@@ -93,10 +90,6 @@ class EPLMapper implements IEPLMapper
             $arr_v = $v[$arr_k]; // ["name"=>""]
             if (is_array($arr_v)) {
                 $sub_arr_k = key($arr_v); // "name"
-                $sub_arr_v = $arr_v[$sub_arr_k]; // ""
-                //var_dump($k . " " . $arr_k . " " . $sub_arr_k);
-                // var_dump($json_decoded[$k][$arr_k][$sub_arr_k]);
-                // die();
                 return $json_decoded[$k][$arr_k][$sub_arr_k];
             }
             return $json_decoded[$k][$arr_k];
@@ -114,319 +107,15 @@ class EPLMapper implements IEPLMapper
         return $json_decoded['extraFields'][$i]["value"];
     }
 
+
     /**
      * EPLMapper constructor.
+     * @param array $fields_map array telling us what wp property maps to what json property.
      */
-    public function __construct()
+    public function __construct(array $fields_map)
     {
-        $this->epl_fields_map =  [
-            "wp_posts" => array_filter(
-                [
-                    "post_date" => "modTime",
-                    "post_content" => "description",
-                    "post_title" => "headline",
-                    "post_type" => [
-                        "extraFields" => [
-                            "tag" => "LISTING_TYPE",
-                            "value"
-                        ]
-                    ]
-                ],
-                function($v) {
-                    return !empty($v);
-                }
-            ),
-            "wp_postmeta" => array_filter([
-                "property_mod_date" => "",
-                "property_images_mod_date" => "",
-                "property_inspection_times" => "",
-                "property_featured" => "",
-                "property_agent_hide_author_box" => "",
-                "property_heading" => "headline",
-                "property_office_id" => "",
-                "property_agent" => [
-                    "listingAgent"=>[
-                        0 => [
-                           "name" => ""
-                        ]
-                    ]
-                ],
-                "property_second_agent" => [
-                    "listingAgent"=>[
-                        1 => [
-                            "name" => ""
-                        ]
-                    ]
-                ],
-                "property_status" => "status",
-                "property_list_date" => "",
-                "property_authority" => "authority",
-                "property_com_authority" => "authority",
-                "property_com_exclusivity" => "",
-                "property_com_listing_type" => [
-                    "extraFields" => [
-                        "tag" => "LEGAL_ESTATE",
-                        "value"
-                    ]
-                ],
-                "property_commercial_category"=>"",
-                "property_building_area_unit"=>[
-                    "buildingDetails" => [
-                        "area" => [
-                            "unit" => ""
-                        ]
-                    ]
-                ],
-                "property_address_display"=> [
-                    "address" => [
-                        "display"=>""
-                    ]
-                ],
-                "property_address_street_number"=>  [
-                    "address" => [
-                        "streetNumber"=>""
-                    ]
-                ],
-                "property_address_street"=>  [
-                    "address" => [
-                        "street"=>""
-                    ]
-                ],
-                "property_address_suburb"=>  [
-                    "address" => [
-                        "suburb" => [
-                            "value"=>""
-                        ]
-                    ]
-                ],
-                "property_com_display_suburb"=> [
-                    "address" => [
-                        "suburb" => [
-                            "display"=>""
-                        ]
-                    ]
-                ],
-                "property_address_city"=> [
-                    "address" => [
-                        "city"=>""
-                    ]
-                ],
-                "property_address_state"=> [
-                    "address" => [
-                        "state"=>""
-                    ]
-                ],
-                "property_address_country"=> [
-                    "address" => [
-                        "country"=>""
-                    ]
-                ],
-                "property_address_coordinates"=> [
-                    "extraFields" => [
-                        [
-                            "tag" => "GEOCODE_LATITUDE",
-                            "value"],
-                        [
-                            "tag" => "GEOCODE_LONGITUDE",
-                            "value"
-                        ],
-                        ","
-                    ]
-                ],
-                "property_price"=> [
-                    "price" => [
-                        "value"=>""
-                    ]
-                ],
-                "property_price_view"=> "priceView",
-                "property_price_display"=> [
-                    "price" => [
-                        "display"
-                    ]
-                ],
-                "property_under_offer"=> "underOffer",
-                "property_sold_date" => "",
-                "property_rent_view"=>"",
-                "property_rent_display"=>"",
-                "property_date_available" => "",
-                "property_com_outgoings" => "",
-                "property_com_car_spaces"=>"",
-                "property_external_link"=>"",
-                "property_branch_name"=>"",
-                "property_building_warehouse_area"=>"",
-                "property_building_office_area"=>"",
-                "property_building_mezzanine_area"=>"",
-                "property_building_showroom_area"=>"",
-                "property_building_retail_area"=> "",
-                "property_features"=>"features",
-                "property_building_storage_area"=>"",
-                "property_price_global" => "",
-                "property_unique_id" => "uniqueID",
-                "property_building_area" => [
-                    "buildingDetails" => [
-                        "area" => [
-                            "value" => ""
-                        ]
-                    ]
-                ],
-                "property_bedrooms"=>"",
-                "property_bathrooms"=>"",
-                "property_toilet"=>"",
-                "property_ensuite"=>"",
-                "property_garage"=>"",
-                "property_carport"=>"",
-                "property_open_spaces"=>"",
-                "property_rooms"=>"",
-                "property_year_built"=>"",
-                "property_new_construction"=>"",
-                "property_pool"=>"",
-                "property_air_conditioning"=>"",
-                "property_security_system"=>"",
-                "property_energy_rating" => "",
-                "property_land_fully_fenced" => "",
-                "property_remote_garage" => "",
-                "property_secure_parking" => "",
-                "property_study" => "",
-                "property_dishwasher" => "",
-                "property_built_in_robes" => "",
-                "property_gym" => "",
-                "property_workshop" => "",
-                "property_rumpus_room" => "",
-                "property_floor_boards" => "",
-                "property_broadband" => "",
-                "property_pay_tv" => "",
-                "property_vacuum_system" => "",
-                "property_intercom" => "",
-                "property_spa" => "",
-                "property_tennis_court"=>"",
-                "property_balcony"=>"",
-                "property_deck"=>"",
-                "property_courtyard"=>"",
-                "property_outdoor_entertaining"=>"",
-                "property_shed"=>"",
-                "property_ducted_heating"=>"",
-                "property_ducted_cooling"=>"",
-                "property_split_system_heating"=>"",
-                "property_hydronic_heating"=>"",
-                "property_split_system_aircon"=>"",
-                "property_gas_heating"=>"",
-                "property_reverse_cycle_aircon"=>"",
-                "property_evaporative_cooling"=>"",
-                "property_open_fire_place"=>"",
-                "property_address_sub_number"=>"",
-                "property_address_postal_code"=>"",
-                "property_address_hide_map"=>"",
-                "property_auction"=>"",
-                "property_is_home_land_package"=>"",
-                "property_sold_price"=>"",
-                "property_sold_price_display"=>"",
-                "property_video_url"=>"",
-                "property_external_link_label"=>"",
-                "property_external_link_2"=>"",
-                "property_external_link_2_label"=>"",
-                "property_external_link_3"=>"",
-                "property_external_link_3_label"=>"",
-                "property_com_mini_web"=>"",
-                "property_com_mini_web_2"=>"",
-                "property_floorplan"=>"",
-                "property_floorplan_label"=>"",
-                "property_floorplan_2"=>"",
-                "property_floorplan_2_label"=>"",
-                "property_energy_certificate"=>"",
-                "property_energy_certificate_label"=>"",
+        $this->epl_fields_map = $fields_map;
 
-                "property_owner"=>"",
-
-                "property_pet_friendly"=>"",
-                "property_land_area_unit"=>[
-                    "landDetails" => [
-                        "area" => [
-                            "unit" => ""
-                        ]
-                    ]
-                ],
-                "property_rent"=>"",
-                "property_rent_period"=>"",
-                "property_bond"=>"",
-                "property_date_leased"=>"",
-                "property_furnished"=>"",
-
-                "property_com_rent"=>"",
-                "property_com_rent_period"=>"",
-                "property_com_rent_range_min"=>"",
-                "property_com_rent_range_max"=>"",
-                "property_com_lease_end_date"=>"",
-                "property_com_property_extent"=>"",
-                "property_com_tenancy"=>"",
-                "property_com_plus_outgoings"=>"",
-                "property_com_return"=>"",
-                "property_bus_terms"=>"",
-
-                "property_com_further_options"=>"",
-                "property_com_zone"=>"",
-                "property_com_highlight_1"=>"",
-                "property_com_highlight_2"=>"",
-                "property_com_highlight_3"=>"",
-                "property_com_parking_comments"=>"",
-                "property_com_is_multiple"=>"",
-
-                "property_com_mini_web_3"=>"",
-
-                "property_land_category"=>"",
-
-                "property_address_lot_number"=>"",
-                "property_bus_takings"=>"",
-                "property_bus_franchise"=>"",
-                "property_rural_category"=>"",
-
-                "property_rural_fencing"=>"",
-                "property_rural_annual_rainfall"=>"",
-                "property_rural_soil_types"=>"",
-                "property_rural_improvements"=>"",
-                "property_rural_council_rates"=>"councilRates",
-                "property_rural_irrigation"=>"",
-                "property_rural_carrying_capacity"=>"",
-                "property_rural_services"=>"",
-
-                // Need to verify following fields against epl
-                "property_rates" => "councilRates",
-                "property_land_area" => [
-                    "landDetails" => [
-                        "area" => [
-                            "value"=>""
-                        ]
-                    ]
-                ],
-
-                "property_legal_ct" =>  [
-                    "extraFields" => [
-                        "tag" => "LEGAL_CT",
-                        "value"
-                    ]
-                ],
-                "property_legal_dp" =>  [
-                    "extraFields" => [
-                        "tag" => "LEGAL_DP",
-                        "value"
-                    ]
-                ],
-                "property_legal_lot" =>  [
-                    "extraFields" => [
-                        "tag" => "LEGAL_LOT",
-                        "value"
-                    ]
-                ],
-                "property_rateable_value" =>  [
-                    "extraFields" => [
-                        "tag" => "RATEABLE_VALUE",
-                        "value"
-                    ]
-                ]
-            ],
-                function($v) {
-                    return !empty($v);
-                })
-        ];
     }
 
 
