@@ -2,8 +2,8 @@
 
 namespace kevinverum\eplmappings;
 
-require("src/JSONMappings.php");
-require("src/XMLMappings.php");
+require(__DIR__ ."/JSONMappings.php");
+require(__DIR__ ."/XMLMappings.php");
 
 /**
  * Class EPLMapper

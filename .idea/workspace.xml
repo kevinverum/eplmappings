@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3b6677-feb2-4076-88a1-7b0a4302345d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/JSONMappings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/JSONV2Mappings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/XMLMappings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eplmapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/eplmapper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,20 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="354" column="25" lean-forward="true" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
+            <state relative-caret-position="212">
+              <caret line="345" column="26" lean-forward="true" selection-start-line="345" selection-start-column="26" selection-end-line="345" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="161">
+              <caret line="22" column="64" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -46,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/src/JSONMappings.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="39" column="37" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
+              <caret line="39" column="37" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -54,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -63,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="3040">
               <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
             </state>
           </provider>
@@ -73,8 +67,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>branch</find>
-      <find>authority</find>
       <find>commercial_rent</find>
       <find>commercialRent</find>
       <find>auction</find>
@@ -83,7 +75,6 @@
       <find>branchId</find>
       <find>dateAvail</find>
       <find>dateAv</find>
-      <find>allownaces</find>
       <find>*&quot;</find>
       <find>street</find>
       <find>agentName</find>
@@ -102,7 +93,10 @@
       <find>tennisCourt</find>
       <find>streetName</find>
       <find>methodOfSaleName</find>
+      <find>allownaces</find>
       <find>return</find>
+      <find>car</find>
+      <find>property_features</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -138,8 +132,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="73" />
-    <option name="y" value="43" />
+    <option name="x" value="-1778" />
+    <option name="y" value="53" />
     <option name="width" value="1676" />
     <option name="height" value="971" />
   </component>
@@ -205,24 +199,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581640285636</updated>
-      <workItem from="1581640286800" duration="47265000" />
+      <workItem from="1581640286800" duration="51568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47265000" />
+    <option name="totallyTimeSpent" value="51568000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="73" y="43" width="1676" height="971" extended-state="0" />
+    <frame x="-1778" y="53" width="1676" height="971" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19339046" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19339046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3447099" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3447099" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -362,38 +356,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
+    <entry file="file://$PROJECT_DIR$/src/JSONMappings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="204">
+          <caret line="39" column="37" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONMappings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" column="37" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="44" selection-end-column="18" />
+        <state relative-caret-position="285">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="3040">
           <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="354" column="25" lean-forward="true" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
+        <state relative-caret-position="212">
+          <caret line="345" column="26" lean-forward="true" selection-start-line="345" selection-start-column="26" selection-end-line="345" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eplmapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="64" />
         </state>
       </provider>
     </entry>
