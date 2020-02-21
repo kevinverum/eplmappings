@@ -35,7 +35,7 @@ class JSONV2Mappings
                 "property_office_id" => SELF::branchID(),
                 "property_agent" => SELF::agentName(0),
                 "property_second_agent" => SELF::agentName(1),
-                "property_status" => "status",
+                "property_status" => self::status(),
                 "property_list_date" => SELF::modTime(),
                 "property_authority" => SELF::authority(),
                 "property_com_authority" => SELF::commercialAuthority(),
@@ -450,8 +450,8 @@ class JSONV2Mappings
                 }catch(\Exception $e){
                     return null;
                 }
-
             }
+            return null;
         };
     }
 
@@ -526,6 +526,13 @@ class JSONV2Mappings
     {
         return function (object $json) {
             return $json->branch->webAddress;
+        };
+    }
+
+    public static function status()
+    {
+        return function (object $json) {
+            return property_exists($json, "status") && !empty($json->status) ?$json->status:null;
         };
     }
 
@@ -700,8 +707,8 @@ class JSONV2Mappings
         return function (object $json) {
             $net_rents = array_filter(
                 SELF::getFeaturesByTitle($json, 'Source'),
-                function(object $feature) {
-                    return is_numeric($feature->value);
+                function(array $feature) {
+                    return is_numeric($feature["value"]);
                 }
             );
             return empty($net_rents)?null:$net_rents[0]->value;
