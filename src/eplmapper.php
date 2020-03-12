@@ -35,6 +35,7 @@ class EPLMapper implements IEPLMapper
                     return !is_null($v);
                 }
             ),
+            "address" => isset($json_decoded["address"])?$json_decoded["address"]:[],
             "feature_image" => isset($json_decoded["featureImage"])?$json_decoded["featureImage"]["url"]:"",
             "images" => isset($json_decoded["images"])?array_map(
                 function($item) {
