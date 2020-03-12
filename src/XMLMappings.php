@@ -172,9 +172,7 @@ class XMLMappings
                 "property_address_country"=> function($v) {
                     return "<address><country>" . $v . "</country></address>";
                 },
-                "property_address_coordinates"=> function($lat, $lng="todo") {
-                    return "<address><latitude>" . $lat . "</latitude><longitude>" . $lng . "</longitude></address>";
-                },
+
                 
                 "property_com_display_suburb"=> "{address[1]/suburb[1]/@display}",
                 "property_land_fully_fenced" => function($v) {
@@ -473,6 +471,23 @@ class XMLMappings
                 "property_rates" => "councilRates",
                 "property_land_area" =>function($v) {
                     return "<landDetails><area>" . $v . "</area></landDetails>";
+                },
+
+
+                "address" => function($a) {
+                    return '
+                    <address display="yes">
+                        <streetNumber>' . $a["streetNo"] . '</streetNumber>
+                        <street>' . $a["street"] . '</street>
+                        <suburb display="yes">' . $a["suburb"] . '</suburb>
+                        <city>' . $a["city"] . '</city>
+                        <state>' . $a["region"] . '</state>
+                        <country>' . $a["country"] . '</country>
+                        <postcode>' . $a["postcode"] . '</postcode>
+                        <latitude>' . $a["latLng"]["lat"] . '</latitude>
+                        <longitude>' . $a["latLng"]["lng"] . '</longitude>
+                    </address>
+                    ';
                 },
 
                 // Need to verify following fields against epl
