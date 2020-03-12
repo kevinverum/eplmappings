@@ -211,7 +211,7 @@ class XMLMappings
                 },
 
                 "property_status" => function($v) {
-                    return $v;
+                    return '<status>' . $v .'</status>';
                 },
 
                 "property_list_date" => function($v) {
