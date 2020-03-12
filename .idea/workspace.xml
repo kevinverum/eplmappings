@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c3b6677-feb2-4076-88a1-7b0a4302345d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JSONV2Mappings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/JSONV2Mappings.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XMLMappings.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/XMLMappings.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +41,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="213" column="56" lean-forward="true" selection-start-line="213" selection-start-column="56" selection-end-line="213" selection-end-column="56" />
+            <state relative-caret-position="352">
+              <caret line="219" column="45" selection-start-line="219" selection-start-column="45" selection-end-line="219" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="436" column="32" selection-start-line="436" selection-start-column="27" selection-end-line="436" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -50,7 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>commercialRent</find>
       <find>auction</find>
       <find>commercialCat</find>
       <find>commercialAh</find>
@@ -59,7 +68,6 @@
       <find>dateAv</find>
       <find>*&quot;</find>
       <find>street</find>
-      <find>agentName</find>
       <find>buildingDetails</find>
       <find>getFeatureValue</find>
       <find>landFullyFenced</find>
@@ -80,6 +88,8 @@
       <find>car</find>
       <find>property_features</find>
       <find>available</find>
+      <find>agentName</find>
+      <find>agent</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -102,9 +112,9 @@
         <option value="$PROJECT_DIR$/src/ieplmapper.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/JSONMappings.php" />
-        <option value="$PROJECT_DIR$/src/JSONV2Mappings.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/src/eplmapper.php" />
+        <option value="$PROJECT_DIR$/src/JSONV2Mappings.php" />
         <option value="$PROJECT_DIR$/src/XMLMappings.php" />
       </list>
     </option>
@@ -126,7 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,6 +152,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -187,18 +197,19 @@
       <workItem from="1582246839110" duration="142000" />
       <workItem from="1583193641447" duration="19000" />
       <workItem from="1583974437791" duration="167000" />
-      <workItem from="1583974819817" duration="258000" />
+      <workItem from="1583974819817" duration="407000" />
+      <workItem from="1583976283488" duration="597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52190000" />
+    <option name="totallyTimeSpent" value="52936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="154" y="44" width="1676" height="971" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20563036" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20807834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -211,7 +222,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3447099" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3447099" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -309,13 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3040">
-          <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6555">
@@ -330,10 +334,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JSONV2Mappings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="436" column="32" selection-start-line="436" selection-start-column="27" selection-end-line="436" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/XMLMappings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="213" column="56" lean-forward="true" selection-start-line="213" selection-start-column="56" selection-end-line="213" selection-end-column="56" />
+        <state relative-caret-position="352">
+          <caret line="219" column="45" selection-start-line="219" selection-start-column="45" selection-end-line="219" selection-end-column="45" />
         </state>
       </provider>
     </entry>

@@ -203,11 +203,21 @@ class XMLMappings
                 },
 
                 "property_agent" => function($v) {
-                    return "<listingAgent><name>" . $v . "</name></listingAgent>";
+                    return '<listingAgent>
+                                <telephone type="BH">' . $v['businessPhone'] . '</telephone>
+                                <telephone type="mobile">' . $v['mobilePhone'] . '</telephone>
+                                <email>' . $v['emailAddress'] . '</email>
+                                <name>' . $v['firstName'] . ' ' . $v['lastName'] . '</name>
+                            </listingAgent>';
                 },
 
                 "property_second_agent" => function($v) {
-                    return "<listingAgent><name>" . $v . "</name></listingAgent>";
+                    return '<listingAgent>
+                                <telephone type="BH">' . $v['businessPhone'] . '</telephone>
+                                <telephone type="mobile">' . $v['mobilePhone'] . '</telephone>
+                                <email>' . $v['emailAddress'] . '</email>
+                                <name>' . $v['firstName'] . ' ' . $v['lastName'] . '</name>
+                            </listingAgent>';
                 },
 
                 "property_status" => function($v) {

@@ -33,8 +33,8 @@ class JSONV2Mappings
                 "property_agent_hide_author_box" => SELF::hideAuthorBox(),
                 "property_heading" => "internetHeading",
                 "property_office_id" => SELF::branchID(),
-                "property_agent" => SELF::agentName(0),
-                "property_second_agent" => SELF::agentName(1),
+                "property_agent" => SELF::agent(0),
+                "property_second_agent" => SELF::agent(1),
                 "property_status" => self::status(),
                 "property_list_date" => SELF::modTime(),
                 "property_authority" => SELF::authority(),
@@ -434,9 +434,9 @@ class JSONV2Mappings
         };
     }
 
-    public static function agentName($index){
+    public static function agent($index){
         return function (object $json) use ($index){
-            return $json->users[$index]->firstName . " " . $json->users[$index]->lastName;
+            return $json->users[$index];
         };
     }
 
