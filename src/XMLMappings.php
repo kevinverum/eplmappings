@@ -24,7 +24,7 @@ class XMLMappings
                             return "<headline>" . $heading . "</headline>";
                     },
                     "post_type" => function(string $type) {
-                            return "<type>". $type . "<type>";
+                            return "<type>". $type . "</type>";
                     },
                 ],
                 function($v) {
